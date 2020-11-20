@@ -1,0 +1,21 @@
+<p>advanced-search works!</p>
+<br/>
+<input #searchParams type="text" value="" placeholder="Enter Card Name Here" />  
+
+<button (click)="onClickSearch(searchParams.value)">Search Database</button>
+
+<div>
+  <img src="{{ tradingCard.Image }}" />
+  <p>Card Name: {{tradingCard.Name}}</p>
+  <p>ATK/DEF: {{tradingCard.ATKDEF}}</p>
+  <p>Card Color: {{tradingCard.Color}}</p>
+  <p>Card Type: {{tradingCard.Type}}</p>
+  <p>Card Race: {{tradingCard.Race}}</p>
+  <p>Card Attribute: {{tradingCard.Attribute}}</p>
+  <p style="white-space: pre;">Card Text: {{tradingCard.Text}}</p>
+  <p>Card Flavor Text: {{tradingCard.FlavorText}}</p>
+  <p>Card Rarity: {{tradingCard.Rarity}}</p>
+  <p>Artist: {{tradingCard.Artist}}</p>
+  <p>Set: {{tradingCard.Set}}</p>
+  <p>Format: {{tradingCard.Format}}</p>
+</div>

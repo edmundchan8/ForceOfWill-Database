@@ -1,9 +1,4 @@
 <h1>{{ title }}</h1>
-
-<input #searchParams type="text" value="" placeholder="Enter Card Name Here" />  
-<button (click)="onClickSearch(searchParams.value)">Search Database</button>
-
-<div>
-  <p>Card Name: {{tradingCard.CardName}}</p>
-  <p>Card Color: {{tradingCard.CardColor}}</p>
-</div>
+<a href="" (click)="clickNavPrerelease()">Prerelease Maker</a>
+<br/>
+<app-advanced-search></app-advanced-search>
