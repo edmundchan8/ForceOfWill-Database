@@ -1,52 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICards } from './cards';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TradingcardsService {
 
-  constructor() { }
+  // point this later to a web server
+  private _url: string = "assets/data/cards.json"
+  constructor(private http: HttpClient) { }
   
-  getTradingCards(){
-    return [
-      {
-        Name: "Lenneth, the Priestess of Vell-Savaria",
-        Color: "Light/Fire",
-        Image: "http://d12h0em1d7ppg.cloudfront.net/items/42/4255/image_en/905d7f3c-e145-4a24-977e-9e0805550965.jpg",
-        ATKDEF: "",
-        Type: "Ruler",
-        Race: "Priest",
-        Attribute: "Light/Fire",
-        Text: "[Stranger] 10 (You may begin the game with a Stranger deck of exactly ten (Stranger) resonators. You may not have more than two copies of any card in your Stranger deck.)" + 
-        "\n[Judgment] LLF" + 
-        "\n[Energize] LF" +  
-        "\nWhenever a light regalia enters the field under your control ⇒ Choose one, if the regalia is 'Caduceus', choose up to two instead - Choose a card from your Stranger deck at random and put it into your hand; or remove the top card of your deck from the game. Then draw a card; or remove target resonator with total cost 1 or less from the game; or you may pay  0  to do judgment until end of turn.",
-        FlavorText: "Arriving in Vell-Savaria with a lost memory, she then became a container for the memories of this world",
-        CardNumber: "AO1 Buy a Box",
-        Rarity: "R",
-        Artist: "SIE NANAHARA",
-        Set: "Alice Origin Promos",
-        Format: "New Frontiers, Wanderer, Origin, Alice Origin Cluster"
-     },
-     {
-      Name: "Lenneth, the Priestess of Vell-Savaria [J-Ruler]",
-      Color: "Light/Fire",
-      Image: "http://d12h0em1d7ppg.cloudfront.net/items/42/4254/image_en/8aacf7e0-b16b-453e-9ec7-654125bd4ff9.jpg",
-      ATKDEF: "1100/1400",
-      Type: "J-Ruler",
-      Race: "Twelve Protective Deities / Priest",
-      Attribute: "Light/Fire",
-      Text: "[Enter] ⇒ Remove target non-J-ruler, non-magic stone entity from the game." + 
-      "\nGod's Art 'Power of Magna' WR: Choose a card from your Stranger deck at random and put it into your hand. Then you may put a (Stranger) from your hand into the field.",
-      FlavorText: "I\'ll never forgive you for invading Lord Magna\'s sanctuary!",
-      CardNumber: "AO1 Buy a Box",
-      Rarity: "R",
-      Artist: "SIE NANAHARA",
-      Set: "Alice Origin Promos",
-      Format: "New Frontiers, Wanderer, Origin, Alice Origin Cluster"
-   },
-      {Name: "Card 01", Color: "Light"},
-      {Name: "Card 02", Color: "Darkness"}
-    ];
+  getTradingCards(): Observable<ICards[]>{
+    return this.http.get<ICards[]>(this._url);
   }
 }

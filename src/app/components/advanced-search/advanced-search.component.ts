@@ -13,7 +13,8 @@ export class AdvancedSearchComponent implements OnInit {
   constructor(private _tradingCardsService: TradingcardsService) { }
 
   ngOnInit(): void {
-    this.tradingCardArray = this._tradingCardsService.getTradingCards();
+    this._tradingCardsService.getTradingCards()
+    .subscribe(data => this.tradingCardArray = data);
   }
 
   onClickSearch(params){
