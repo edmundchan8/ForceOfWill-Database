@@ -16,12 +16,16 @@ export class RandomGeneratorComponent implements OnInit {
    randomNumber(){
     return Math.floor(( Math.random() * this.arraySize) + 1)
    }
+
+   sendRandomNumber(value){
+    this._interactionService.sendRandomNumber(value)
+   }
    
   ngOnInit(): void {
-    this._interactionService.callRandom$
+    this._interactionService.getRandom$
     .subscribe(
       message => {
-       this._interactionService.getRandomNumber()
+        this.sendRandomNumber(this.randomNumber())
       }
     )
   }

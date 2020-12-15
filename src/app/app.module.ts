@@ -8,12 +8,14 @@ import { BoosterCardsService } from './booster-cards.service'
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DraftComponent } from './components/draft/draft.component';
+import { RandomGeneratorComponent} from './components/random-generator/random-generator.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AdvancedSearchComponent,
-    DraftComponent
+    DraftComponent,
+    RandomGeneratorComponent
   ],
   imports: [
     BrowserModule,
