@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ForceOfWill-Database"
+    }
+  },
+  "defaultProject": "ForceOfWill-Database",
+  "cli": {
+    "analytics": "20db3f10-fe4d-440b-acfa-f6d31fc74e13"
+  }
 }

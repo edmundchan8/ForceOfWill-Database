@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BoosterCardsService } from '../../booster-cards.service'
 
 @Component({
   selector: 'app-draft',
@@ -8,29 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class DraftComponent implements OnInit {
 
   public boosterSet = "The Epic of the Dragon Lord"
-  public cardsArray
+  public cardsArray = []
   
-  constructor() { }
+  constructor(public _boosterCardsService: BoosterCardsService) { }
 
   ngOnInit(): void {
-  }
+    this._boosterCardsService.getCards()
+    .subscribe(data => this.cardsArray = data)
+    }
 
-  draftCards(){
-    this.cardsArray = [
-      {"Name": "Abhorrent Revival"},
-      {"Name": "Academy Guard of Lykeion"},
-      {"Name": "Altesing, Mischievous Boy // A Glimpse of the Prodigy"},
-      {"Name": "Altesing's Secret Hideout"},
-      {"Name": "Appraisal of Treasures"},
-      {"Name": "Arle, the Seven-Tailed Fox // Arle's Flame"},
-      {"Name": "Arm of the Demon"},
-      {"Name": "Bone Dragon"},
-      {"Name": "Burning Rabbit Dash"},
-      {"Name": "Chasing Dragon"},
-      {"Name": "Chelina, Sorceress of Sending Back // Send Back"},
-      {"Name": "Claw of the Dragonoid"}
-  ]
-  console.log("click")
-    return this.cardsArray
-  }
 }
