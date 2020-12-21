@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoosterCardsService } from 'src/app/booster-cards.service';
+import { InteractionService } from '../../interaction.service'
 
 @Component({
   selector: 'app-draw-card',
@@ -7,8 +8,21 @@ import { BoosterCardsService } from 'src/app/booster-cards.service';
   styleUrls: ['./draw-card.component.css']
 })
 export class DrawCardComponent implements OnInit {
+  constructor(public _interactionService: InteractionService) { }
 
-  constructor(public _boosterCardsSerivce: BoosterCardsService) { }
+  public drawnCard
+
+  ngOnInit(): void {
+    this._interactionService.sendCard$
+    .subscribe(
+      message => {
+        this.drawnCard = message
+      })
+  }
+
+  // drawCard(){
+  //   this._interactionService.getCard()
+  // }
 
   drawNRarity(){
     // generate random number
@@ -17,7 +31,4 @@ export class DrawCardComponent implements OnInit {
     // draw card
     // otherwise, repeat, until we find an N rarity card
   }
-  ngOnInit(): void {
-  }
-
 }

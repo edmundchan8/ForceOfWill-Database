@@ -12,6 +12,7 @@ export class DraftComponent implements OnInit {
   public boosterSet = "The Epic of the Dragon Lord"
   public cardsArray = []
   public randomNumber
+
   
   constructor(public _boosterCardsService: BoosterCardsService, 
     public _interactionService: InteractionService) { }
@@ -24,11 +25,25 @@ export class DraftComponent implements OnInit {
     .subscribe(
       message => {
         this.randomNumber = message
-      }
-    )
+      })
+
+    this._interactionService.getCard$
+    .subscribe(
+      message => {
+        this.sendCard(this.cardsArray[message])
+      })
     }
 
-  getRandom(){
-    this._interactionService.getRandomNumber()
+  createRandom(){
+    this._interactionService.createRandomNumber()
+  }
+
+  getRandomCard(){
+    this.createRandom()
+    this._interactionService.getRandomCard(this.randomNumber)
+  }
+
+  sendCard(card){
+    this._interactionService.sendCard(card)
   }
 }

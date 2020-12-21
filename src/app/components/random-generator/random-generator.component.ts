@@ -20,9 +20,9 @@ export class RandomGeneratorComponent implements OnInit {
    sendRandomNumber(value){
     this._interactionService.sendRandomNumber(value)
    }
-   
+
   ngOnInit(): void {
-    this._interactionService.getRandom$
+    this._interactionService.createRandom$
     .subscribe(
       message => {
         this.sendRandomNumber(this.randomNumber())
