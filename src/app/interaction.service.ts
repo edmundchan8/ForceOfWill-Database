@@ -13,13 +13,15 @@ export class InteractionService {
   // Subject is like a source that sends messages to the component
   private _sendRanSource = new Subject<string>()
   private _createRanNumSource = new Subject<number>()
+  private _confirmIDSource = new Subject<number>()
   private _getCardSource = new Subject<number>()
-  private _sendCardSource = new Subject<IBoosterCards>()
+  private _drawCardSource = new Subject<IBoosterCards>()
   // Then, expose the subjects above as observables
   sendRandom$ = this._sendRanSource.asObservable()
   createRandom$ = this._createRanNumSource.asObservable()
+  confirmID$ = this._confirmIDSource.asObservable()
   getCard$ = this._getCardSource.asObservable()
-  sendCard$ = this._sendCardSource.asObservable()
+  drawCard$ = this._drawCardSource.asObservable()
 
   constructor() { }
   // create a method that accepts a value from random component and pushed it via an observable
@@ -31,11 +33,15 @@ export class InteractionService {
     this._sendRanSource.next(value)
   }
 
-  getRandomCard(value){
+  confirmID(value){
+    this._confirmIDSource.next(value)
+  }
+
+  getCardFromID(value){
     this._getCardSource.next(value)
   }
 
-  sendCard(card){
-    this._sendCardSource.next(card)
+  drawCard(card){
+    this._drawCardSource.next(card)
   }
 }

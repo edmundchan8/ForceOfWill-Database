@@ -13,7 +13,7 @@ export class DrawCardComponent implements OnInit {
   public drawnCard
 
   ngOnInit(): void {
-    this._interactionService.sendCard$
+    this._interactionService.drawCard$
     .subscribe(
       message => {
         this.drawnCard = message

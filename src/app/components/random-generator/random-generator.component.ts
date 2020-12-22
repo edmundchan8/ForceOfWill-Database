@@ -10,23 +10,41 @@ import { InteractionService } from '../../interaction.service'
 export class RandomGeneratorComponent implements OnInit {
 
   public arraySize = 100
-  constructor(public _boosterCardsSerivce: BoosterCardsService, public _interactionService: InteractionService) {  
-   }
+  public randomNumber
+  constructor(public _boosterCardsSerivce: BoosterCardsService, 
+    public _interactionService: InteractionService) {}
 
-   randomNumber(){
-    return Math.floor(( Math.random() * this.arraySize) + 1)
-   }
+   generateRandomNumber(){
+     return this.randomNumber = Math.floor(( Math.random() * this.arraySize) + 1)
+    }
 
    sendRandomNumber(value){
     this._interactionService.sendRandomNumber(value)
+   }
+
+   getRandomNumber(){
+     return this.randomNumber
    }
 
   ngOnInit(): void {
     this._interactionService.createRandom$
     .subscribe(
       message => {
-        this.sendRandomNumber(this.randomNumber())
+        this.randomNumber = this.generateRandomNumber()
       }
     )
+
+    this._interactionService.confirmID$
+    .subscribe(
+      message => {
+        this._interactionService.getCardFromID(message)
+      }
+    )
+    
+    this._interactionService.sendRandom$
+    .subscribe(
+      message => {
+        return this.randomNumber
+      })
   }
 }
