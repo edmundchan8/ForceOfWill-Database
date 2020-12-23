@@ -32,7 +32,21 @@ export class DraftComponent implements OnInit {
     .subscribe(
       message => {    
         this.drawCard(this.cardsArray.filter(card => card.rarity == 'Normal')[message])
-        // this.drawCard(this.cardsArray[message])
+      })
+    this._interactionService.getRCard$
+    .subscribe(
+      message => {    
+        this.drawCard(this.cardsArray.filter(card => card.rarity == 'Rare')[message])
+      })
+    this._interactionService.getSRCard$
+    .subscribe(
+      message => {    
+        this.drawCard(this.cardsArray.filter(card => card.rarity == 'Super Rare')[message])
+      })
+    this._interactionService.getMRCard$
+    .subscribe(
+      message => {    
+        this.drawCard(this.cardsArray.filter(card => card.rarity == 'Marvel Rare')[message])
       })
     }
 

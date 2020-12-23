@@ -52,6 +52,15 @@ export class InteractionService {
   getNCardFromID(value){
     this._getNCardSource.next(value)
   }
+  getRCardFromID(value){
+    this._getRCardSource.next(value)
+  }
+  getSRCardFromID(value){
+    this._getSRCardSource.next(value)
+  }
+  getMRCardFromID(value){
+    this._getMRCardSource.next(value)
+  }
 
   drawCard(card){
     this._drawCardSource.next(card)

@@ -21,7 +21,7 @@ export class RandomGeneratorComponent implements OnInit {
         this.arraySize = 55
         break;
       case 'Rare':
-        this.arraySize = 26
+        this.arraySize = 20
         break;
       case 'Super Rare':
         this.arraySize = 15
@@ -33,7 +33,7 @@ export class RandomGeneratorComponent implements OnInit {
         this.arraySize = 100
         break;
     }
-     return this.randomNumber = Math.floor(( Math.random() * this.arraySize) + 1)
+     return this.randomNumber = Math.floor(( Math.random() * this.arraySize))
     }
 
    sendRandomNumber(value){
@@ -60,8 +60,17 @@ export class RandomGeneratorComponent implements OnInit {
           this._interactionService.getCardFromID(this.randomNumber)
         }
         else if (message === 'Normal') {
-          console.log(this.randomNumber)
           this._interactionService.getNCardFromID(this.randomNumber)
+        }
+        else if (message === 'Rare') {
+          this._interactionService.getRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Super Rare') {
+          this._interactionService.getSRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Marvel Rare') {
+          console.log(this.randomNumber)
+          this._interactionService.getMRCardFromID(this.randomNumber)
         }
         else
         this._interactionService.getCardFromID(message)
