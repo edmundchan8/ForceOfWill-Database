@@ -16,6 +16,8 @@ export class DrawCardComponent implements OnInit {
     this._interactionService.drawCard$
     .subscribe(
       message => {
+        console.log(message + " draw-card")
+        //RUNNING TWICE FOR SOME REASON
         this.drawnCard = message
       })
   }

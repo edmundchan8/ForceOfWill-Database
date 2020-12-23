@@ -22,9 +22,11 @@ export class DraftComponent implements OnInit {
     this._boosterCardsService.getCards()
     .subscribe(data => this.cardsArray = data)
 
+    //1st getCard$
     this._interactionService.getCard$
     .subscribe(
       message => {
+        console.log(message + " draft")
         this.drawCard(this.cardsArray[message])
       })
     }
@@ -34,7 +36,7 @@ export class DraftComponent implements OnInit {
   }
 
   findCard(cardId){
-    this._interactionService.getCardFromID(cardId)
+    this._interactionService.confirmID(cardId)
   }
 
   drawCard(card){

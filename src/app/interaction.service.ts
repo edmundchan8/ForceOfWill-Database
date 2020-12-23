@@ -13,7 +13,7 @@ export class InteractionService {
   // Subject is like a source that sends messages to the component
   private _sendRanSource = new Subject<string>()
   private _createRanNumSource = new Subject<number>()
-  private _confirmIDSource = new Subject<number>()
+  private _confirmIDSource = new Subject<string>()
   private _getCardSource = new Subject<number>()
   private _drawCardSource = new Subject<IBoosterCards>()
   // Then, expose the subjects above as observables
