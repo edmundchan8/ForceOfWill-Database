@@ -15,12 +15,20 @@ export class InteractionService {
   private _createRanNumSource = new Subject<number>()
   private _confirmIDSource = new Subject<string>()
   private _getCardSource = new Subject<number>()
+  private _getNCardSource = new Subject<number>()
+  private _getRCardSource = new Subject<number>()
+  private _getSRCardSource = new Subject<number>()
+  private _getMRCardSource = new Subject<number>()
   private _drawCardSource = new Subject<IBoosterCards>()
   // Then, expose the subjects above as observables
   sendRandom$ = this._sendRanSource.asObservable()
   createRandom$ = this._createRanNumSource.asObservable()
   confirmID$ = this._confirmIDSource.asObservable()
   getCard$ = this._getCardSource.asObservable()
+  getNCard$ = this._getNCardSource.asObservable()
+  getRCard$ = this._getRCardSource.asObservable()
+  getSRCard$ = this._getSRCardSource.asObservable()
+  getMRCard$ = this._getMRCardSource.asObservable()
   drawCard$ = this._drawCardSource.asObservable()
 
   constructor() { }
@@ -39,6 +47,10 @@ export class InteractionService {
 
   getCardFromID(value){
     this._getCardSource.next(value)
+  }
+
+  getNCardFromID(value){
+    this._getNCardSource.next(value)
   }
 
   drawCard(card){

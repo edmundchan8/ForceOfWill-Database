@@ -22,12 +22,17 @@ export class DraftComponent implements OnInit {
     this._boosterCardsService.getCards()
     .subscribe(data => this.cardsArray = data)
 
-    //1st getCard$
     this._interactionService.getCard$
     .subscribe(
-      message => {
-        console.log(message + " draft")
+      message => { 
         this.drawCard(this.cardsArray[message])
+      })
+
+    this._interactionService.getNCard$
+    .subscribe(
+      message => {    
+        this.drawCard(this.cardsArray.filter(card => card.rarity == 'Normal')[message])
+        // this.drawCard(this.cardsArray[message])
       })
     }
 

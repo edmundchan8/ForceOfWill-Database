@@ -1,6 +1,19 @@
 <p>draw-card works!</p>
 <div *ngIf=" drawnCard != null">
-    {{ drawnCard.id }}
-    {{ drawnCard.name }}
-    {{ drawnCard.rarity }}
+    <table>
+        <tr>
+            <th>Card Number</th>
+            <th>Card Name</th>
+            <th>Rarity</th>
+        </tr>
+        <td>
+            {{ drawnCard.id }}
+        </td>
+        <td>
+            {{ drawnCard.name }}
+        </td>
+        <td>
+            {{ drawnCard.rarity }}
+        </td>
+    </table>
 </div>

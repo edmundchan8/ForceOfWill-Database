@@ -9,12 +9,30 @@ import { InteractionService } from '../../interaction.service'
 })
 export class RandomGeneratorComponent implements OnInit {
 
-  public arraySize = 100
+  public arraySize
   public randomNumber
   constructor(public _boosterCardsSerivce: BoosterCardsService, 
     public _interactionService: InteractionService) {}
 
-   generateRandomNumber(){
+   generateRandomNumber(rarity){
+    switch(rarity)
+    {
+      case 'Normal':
+        this.arraySize = 55
+        break;
+      case 'Rare':
+        this.arraySize = 26
+        break;
+      case 'Super Rare':
+        this.arraySize = 15
+        break;
+      case 'Marvel Rare':
+        this.arraySize = 5
+        break;
+      default:
+        this.arraySize = 100
+        break;
+    }
      return this.randomNumber = Math.floor(( Math.random() * this.arraySize) + 1)
     }
 
@@ -30,17 +48,20 @@ export class RandomGeneratorComponent implements OnInit {
     this._interactionService.createRandom$
     .subscribe(
       message => {
-        this.randomNumber = this.generateRandomNumber()
+        this.randomNumber = this.generateRandomNumber(message)
       }
     )
 
     this._interactionService.confirmID$
     .subscribe(
       message => {
-        if (message === 'random')
-        {
-          this.generateRandomNumber()
+        this.generateRandomNumber(message)
+        if (message === 'random') {
           this._interactionService.getCardFromID(this.randomNumber)
+        }
+        else if (message === 'Normal') {
+          console.log(this.randomNumber)
+          this._interactionService.getNCardFromID(this.randomNumber)
         }
         else
         this._interactionService.getCardFromID(message)
