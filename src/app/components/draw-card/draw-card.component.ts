@@ -10,25 +10,14 @@ import { InteractionService } from '../../interaction.service'
 export class DrawCardComponent implements OnInit {
   constructor(public _interactionService: InteractionService) { }
 
-  public drawnCard
+  public drawnCard = []
 
   ngOnInit(): void {
+    console.log(this.drawnCard)
     this._interactionService.drawCard$
     .subscribe(
       message => {
-        this.drawnCard = message
+        this.drawnCard.push(message)
       })
-  }
-
-  // drawCard(){
-  //   this._interactionService.getCard()
-  // }
-
-  drawNRarity(){
-    // generate random number
-    
-    // if random number matches card in array that is rarity N
-    // draw card
-    // otherwise, repeat, until we find an N rarity card
   }
 }

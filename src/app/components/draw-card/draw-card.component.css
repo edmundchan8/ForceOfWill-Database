@@ -3,6 +3,15 @@ table, th, td {
 }
 
 table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
     width: 100%;
-    text-align: center;
+}
+
+th {
+    width: 30%;
+}
+
+.align-mid{
+    text-align : center;
 }

@@ -1,19 +1,25 @@
 <p>draw-card works!</p>
-<div *ngIf=" drawnCard != null">
+<div *ngIf=" drawnCard.length > 0">
     <table>
-        <tr>
-            <th>Card Number</th>
-            <th>Card Name</th>
-            <th>Rarity</th>
-        </tr>
-        <td>
-            {{ drawnCard.id }}
-        </td>
-        <td>
-            {{ drawnCard.name }}
-        </td>
-        <td>
-            {{ drawnCard.rarity }}
-        </td>
+        <thead>
+            <tr>
+                <th>Card Number</th>
+                <th>Card Name</th>
+                <th>Rarity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let card of drawnCard">
+                <td class="align-mid">
+                    {{ card.id }}
+                </td>
+                <td>
+                    {{ card.name }}
+                </td>
+                <td>
+                    {{ card.rarity }}
+                </td>
+            </tr>
+        </tbody>
     </table>
 </div>
