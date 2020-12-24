@@ -17,7 +17,8 @@ export class DrawCardComponent implements OnInit {
     this._interactionService.drawCard$
     .subscribe(
       message => {
-        this.drawnCard.push(message)
+        if (this.drawnCard.length < 8)
+          this.drawnCard.push(message)
       })
   }
 }
