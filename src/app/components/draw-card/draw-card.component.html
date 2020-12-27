@@ -1,15 +1,16 @@
-<p>draw-card works!</p>
-<div *ngIf=" drawnCard.length > 0">
+<div *ngIf=" drawnCards.length > 0">
     <table>
         <thead>
             <tr>
                 <th>Card Number</th>
                 <th>Card Name</th>
                 <th>Rarity</th>
+                <th>Type</th>
+                <th>Will</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let card of drawnCard">
+            <tr [ngStyle]="{'background-color':getColor(card.will)}" *ngFor="let card of drawnCards">
                 <td class="align-mid">
                     {{ card.id }} 
                 </td>
@@ -19,7 +20,18 @@
                 <td>
                     {{ card.rarity }}
                 </td>
+                <td>
+                    {{ card.type }}
+                </td>
+                <td>
+                    {{ card.will }}
+                </td>
             </tr>
         </tbody>
     </table>
+    <button mat-raised-button color="primary" (click)="exportCardsToText()">Export Card List</button>
+    <br/>
+    <span [innerText]="content">
+        {{content}}
+    </span>
 </div>

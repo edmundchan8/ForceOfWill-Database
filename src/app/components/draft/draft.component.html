@@ -1,26 +1,8 @@
 <h1>Prerelease Draft!</h1>
 <p>Draft the set: {{boosterSet}} </p>
-<br/>
 <p>You'll be drafting 6 booster packs.  Click below to get a list of cards that you will draft with!</p>
 
-<!-- <div *ngFor="let card of cardsArray">
-    <p>{{card.id}}: {{card.name}} : {{card.rarity}}</p>
-</div> -->
-
-<!-- <button (click)="getRandom()" >Get Random</button>
-{{ randomNumber }} -->
-
-
-<button (click)="findCard(1)">Draw Card with ID 1</button>
-<br/>
-<button (click)="findCard('random')">Draw random Card</button>
-<br/>
-<button (click)="findCard('Normal')">Draw random Normal Card</button>
-<br/>
-<button (click)="findCard('Rare')">Draw random Rare Card</button>
-<br/>
-<button (click)="findCard('Super Rare')">Draw random Super Rare Card</button>
-<br/>
-<button (click)="findCard('Marvel Rare')">Draw random Marvel Rare Card</button>
+<button color="primary" mat-raised-button (click)="draftBooster()">DRAFT!</button>
+<!-- <button (click)="openSnackBar('Dismiss')">SnackBar</button> -->
 <app-random-generator></app-random-generator>
 <app-draw-card></app-draw-card>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TradingcardsService } from './tradingcards.service';
@@ -10,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DraftComponent } from './components/draft/draft.component';
 import { RandomGeneratorComponent} from './components/random-generator/random-generator.component'
 import { DrawCardComponent } from './components/draw-card/draw-card.component';
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { DrawCardComponent } from './components/draw-card/draw-card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [TradingcardsService, BoosterCardsService],
   bootstrap: [AppComponent]

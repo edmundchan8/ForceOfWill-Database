@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { BoosterCardsService } from '../../booster-cards.service'
 import { InteractionService } from '../../interaction.service'
 
@@ -11,12 +12,14 @@ export class DraftComponent implements OnInit {
 
   public boosterSet = "The Epic of the Dragon Lord"
   public cardsArray = []
+  public boostersDrafted = 0
 
   //random variable holder just for draftcomponent
   public draftRandom
   
   constructor(public _boosterCardsService: BoosterCardsService, 
-    public _interactionService: InteractionService) { }
+    public _interactionService: InteractionService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this._boosterCardsService.getCards()
@@ -60,5 +63,31 @@ export class DraftComponent implements OnInit {
 
   drawCard(card){
     this._interactionService.drawCard(card)
+  }
+
+  draftBooster(){
+    this.boostersDrafted++
+    this._interactionService.clearDrawnCards()
+    var NCards = 6
+    while (NCards > 0){
+      this.findCard('Normal')
+      NCards--
+    }
+    var randomRarity = Math.floor(( Math.random() * 9))
+    if (randomRarity > 7)
+      this.findCard('Marvel Rare')
+    if (randomRarity >= 3 && randomRarity <= 7 )
+      this.findCard('Super Rare')
+    else
+      this.findCard('Rare')
+
+    this.findCard('random')
+    this.openSnackBar("Dismiss")
+  }
+
+  openSnackBar(action: string){
+    this._snackBar.open("You've opened " + this.boostersDrafted + " boosters.",
+     action,
+     {duration: 3000})
   }
 }
