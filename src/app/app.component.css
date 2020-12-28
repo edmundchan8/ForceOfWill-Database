@@ -1,3 +1,15 @@
 h1, p {
     font-family: Arial;
 }
+.row {
+    display: flex;
+}
+  
+.column {
+flex: 50%;
+margin: 5px;
+}
+
+.app-border {
+    border: 5px solid red;
+}

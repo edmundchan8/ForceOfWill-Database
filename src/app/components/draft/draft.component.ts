@@ -82,6 +82,7 @@ export class DraftComponent implements OnInit {
       this.findCard('Rare')
 
     this.findCard('random')
+    this._interactionService.setCardListArray()
     this.openSnackBar("Dismiss")
   }
 

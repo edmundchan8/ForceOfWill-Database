@@ -11,6 +11,7 @@ import { RandomGeneratorComponent} from './components/random-generator/random-ge
 import { DrawCardComponent } from './components/draw-card/draw-card.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdvancedSearchComponent,
     DraftComponent,
     RandomGeneratorComponent,
-    DrawCardComponent
+    DrawCardComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,

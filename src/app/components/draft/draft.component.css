@@ -1,3 +1,11 @@
 h1, p {
     font-family: Arial;
 }
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+    margin: 10px;
+  }

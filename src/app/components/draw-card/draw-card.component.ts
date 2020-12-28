@@ -12,7 +12,7 @@ export class DrawCardComponent implements OnInit {
 
   public drawnCards = []
   public draftedCards = []
-  public content = ""
+ 
 
   getColor(will) { 
     switch (will) {
@@ -46,17 +46,19 @@ export class DrawCardComponent implements OnInit {
           this.clearCards()
         }
       )
+      this._interactionService.setCardList$
+      .subscribe(
+        message =>{
+          this.sendDrawnCards(this.draftedCards)
+        }
+      )
   }
 
   clearCards(){
     this.drawnCards = []
   }
 
-  exportCardsToText(){
-    var rowWidth=50
-    var i
-    for (i = 0; i < this.drawnCards.length; i++){
-      this.content += '\n' + this.drawnCards[i].name + " (" + this.drawnCards[i].set + ")"
-    }
+  sendDrawnCards(array){
+    this._interactionService.sendDrawnCards(array)
   }
 }
