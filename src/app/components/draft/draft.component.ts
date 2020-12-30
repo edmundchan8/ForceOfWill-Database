@@ -66,29 +66,39 @@ export class DraftComponent implements OnInit {
   }
 
   draftBooster(){
-    this.boostersDrafted++
-    this._interactionService.clearDrawnCards()
-    var NCards = 6
-    while (NCards > 0){
-      this.findCard('Normal')
-      NCards--
-    }
-    var randomRarity = Math.floor(( Math.random() * 9))
-    if (randomRarity > 7)
-      this.findCard('Marvel Rare')
-    if (randomRarity >= 3 && randomRarity <= 7 )
-      this.findCard('Super Rare')
-    else
-      this.findCard('Rare')
+    if(this.boostersDrafted != 6)
+    {
+      this.boostersDrafted++
+      this._interactionService.clearDrawnCards()
+      var NCards = 6
+      while (NCards > 0){
+        this.findCard('Normal')
+        NCards--
+      }
+      var randomRarity = Math.floor(( Math.random() * 9))
+      if (randomRarity > 7)
+        this.findCard('Marvel Rare')
+      if (randomRarity >= 3 && randomRarity <= 7 )
+        this.findCard('Super Rare')
+      else
+        this.findCard('Rare')
 
-    this.findCard('random')
-    this._interactionService.setCardListArray()
-    this.openSnackBar("Dismiss")
+      this.findCard('random')
+      this._interactionService.setCardListArray()
+      this.openBoosterSnackBar("Dismiss")
+    }
+    else
+      this.onMaxBoostersDraftedSnackBar()
   }
 
-  openSnackBar(action: string){
+  openBoosterSnackBar(action: string){
     this._snackBar.open("You've opened " + this.boostersDrafted + " boosters.",
      action,
      {duration: 3000})
   }
+
+  onMaxBoostersDraftedSnackBar(){
+    this._snackBar.open("You cannot open anymore boosters", "dismiss", {duration: 3000})
+  }
+
 }

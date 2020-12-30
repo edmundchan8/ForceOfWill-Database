@@ -1,2 +1,4 @@
-<button mat-raised-button color="primary" (click)="exportCardsToText()">Export Card List</button>
+<span *ngIf="cardArray.length != 0">
+    <button mat-raised-button color="primary" (click)="exportCardsToText()">Export Card List</button>
+</span>
 <span [innerText]="content">{{content}}</span>
