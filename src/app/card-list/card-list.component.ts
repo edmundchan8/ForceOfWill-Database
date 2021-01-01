@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { Component, OnInit } from '@angular/core';
 import { InteractionService } from '../interaction.service'
 
@@ -8,7 +9,10 @@ import { InteractionService } from '../interaction.service'
 })
 export class CardListComponent implements OnInit {
 
-  constructor(public _interactionService: InteractionService) { }
+  constructor(
+    public _interactionService: InteractionService,
+    private _clipboard: ClipboardModule
+    ) { }
 
   public currentDraftedCardsBasedHash = []
   //hash instead of 'content'

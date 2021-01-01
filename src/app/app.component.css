@@ -9,7 +9,3 @@ h1, p {
 flex: 50%;
 margin: 5px;
 }
-
-.app-border {
-    border: 5px solid red;
-}

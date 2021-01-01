@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
+import {ClipboardModule} from '@angular/cdk/clipboard'
 
 const material = [
   MatButtonModule, 
@@ -30,7 +31,8 @@ const material = [
   MatSnackBarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  ClipboardModule
 ]
 
 @NgModule({
