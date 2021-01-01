@@ -12,7 +12,7 @@ export class BoosterCardsService {
   // private _url: string = "/assets/data/draftCards.json";
 
   //FOR PRODUCTION PURPOSES
-  private _url: string = "https://github.com/edmundchan8/ForceOfWill-Database/blob/master/src/assets/data/draftCards.json";
+  private _url: string = "https://raw.githubusercontent.com/edmundchan8/ForceOfWill-Database/master/src/assets/data/draftCards.json";
 
   constructor(private http: HttpClient) { }
 
