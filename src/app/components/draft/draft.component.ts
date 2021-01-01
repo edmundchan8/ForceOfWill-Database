@@ -38,7 +38,7 @@ export class DraftComponent implements OnInit {
       })
     this._interactionService.getRCard$
     .subscribe(
-      message => {    
+      message => {
         this.drawCard(this.cardsArray.filter(card => card.rarity == 'Rare')[message])
       })
     this._interactionService.getSRCard$
@@ -50,6 +50,11 @@ export class DraftComponent implements OnInit {
     .subscribe(
       message => {    
         this.drawCard(this.cardsArray.filter(card => card.rarity == 'Marvel Rare')[message])
+      })
+      this._interactionService.getRulerCard$
+    .subscribe(
+      message => {    
+        this.drawCard(this.cardsArray.filter(card => card.rarity == 'Ruler')[message])
       })
     }
 
@@ -75,10 +80,12 @@ export class DraftComponent implements OnInit {
         this.findCard('Normal')
         NCards--
       }
-      var randomRarity = Math.floor(( Math.random() * 9))
-      if (randomRarity > 7)
+      var randomRarity = Math.floor(( Math.random() * 72))
+      if (randomRarity > 70)
+        this.findCard('Ruler')
+      else if (randomRarity > 0 && randomRarity <= 10)
         this.findCard('Marvel Rare')
-      if (randomRarity >= 3 && randomRarity <= 7 )
+      else if (randomRarity >= 25 && randomRarity <= 50 )
         this.findCard('Super Rare')
       else
         this.findCard('Rare')

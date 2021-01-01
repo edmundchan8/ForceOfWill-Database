@@ -19,9 +19,11 @@ export class InteractionService {
   private _getRCardSource = new Subject<number>()
   private _getSRCardSource = new Subject<number>()
   private _getMRCardSource = new Subject<number>()
+  private _getRulerCardSource = new Subject<number>()
   private _drawCardSource = new Subject<IBoosterCards>()
   private _clearDrawnCardsSource = new Subject<IBoosterCards>()
   private _sendDrawnCardsSource = new Subject<IBoosterCards[]>()
+  private _sendCurrentDraftedCardsSource = new Subject<IBoosterCards[]>()
   private _setCardListSource = new Subject()
   // Then, expose the subjects above as observables
   sendRandom$ = this._sendRanSource.asObservable()
@@ -32,9 +34,11 @@ export class InteractionService {
   getRCard$ = this._getRCardSource.asObservable()
   getSRCard$ = this._getSRCardSource.asObservable()
   getMRCard$ = this._getMRCardSource.asObservable()
+  getRulerCard$ = this._getRulerCardSource.asObservable()
   drawCard$ = this._drawCardSource.asObservable()
   clearCards$ = this._clearDrawnCardsSource.asObservable()
   sendDrawnCards$ = this._sendDrawnCardsSource.asObservable()
+  sendCurrentDraftedCards$ = this._sendCurrentDraftedCardsSource.asObservable()
   setCardList$ = this._setCardListSource.asObservable()
 
   constructor() { }
@@ -68,6 +72,10 @@ export class InteractionService {
     this._getMRCardSource.next(value)
   }
 
+  getRulerCardFromID(value){
+    this._getRulerCardSource.next(value)
+  }
+
   drawCard(card){
     this._drawCardSource.next(card)
   }
@@ -83,4 +91,8 @@ export class InteractionService {
   setCardListArray(){
     this._setCardListSource.next()
   }
+
+  // sendCurrentDraftedCards(array){
+  //   this._sendCurrentDraftedCardsSource.next(array)
+  // }
 }

@@ -10,58 +10,47 @@ export class CardListComponent implements OnInit {
 
   constructor(public _interactionService: InteractionService) { }
 
+  public currentDraftedCardsBasedHash = []
+  //hash instead of 'content'
   public content = ""
-  public cardArray = []
+  public hash = { }
 
   ngOnInit(): void {
     this._interactionService.sendDrawnCards$
     .subscribe(
       message => {
-        this.cardArray = message
+        this.AddCardsToHashTable(message)
     })
+
+    // this._interactionService.sendCurrentDraftedCards$
+    // .subscribe(
+    //   message => {
+    //     this.currentDraftedCards = message
+    // })
   }
 
-  exportCardsToText(){
+  exportCardsToText() {
     this.content = ""
     var rowWidth=50
     var i
-
-    //instead of 1
-    //use the value of the 'key' in my hash table
-
-    //instead of this.cardArray[i].name, use the 'key'
-    for (i = 0; i < this.cardArray.length; i++){
-      this.content += '\n 1 ' + this.cardArray[i].name + " (" + this.cardArray[i].set + ")"
-      }
+    for (i = 0; i < this.currentDraftedCardsBasedHash.length; i++){
+      //the key is a STRING atm
+      this.content += '\n ' + this.hash[this.currentDraftedCardsBasedHash[i].id] + " x " + this.currentDraftedCardsBasedHash[i].name + " (" + this.currentDraftedCardsBasedHash[i].set + ")"
     }
   }
 
-  //create hash table
-  class HashTable {
-    public values
-    public length
-    public size
-    constructor() {
-      this.values = {};
-      this.length =  0;
-      this.size =  0;
-    }
-
-    //hasing function
-    calculateHash(key) {
-      return key.toString().length % this.size;
-     }
-
-    add(key, value) {
-      const hash = this.calculateHash(key);
-      if (!this.values.hasOwnProperty(hash)) {
-          this.values[hash] = {};
+  //need way to not keep destroying hash here
+  //TODO should be add cards to current hash table
+    AddCardsToHashTable(array){
+    for (let i = 0; i < array.length; i++){
+      if(this.hash[array[i].id]){
+        this.hash[array[i].id]++
       }
-      if (!this.values[hash].hasOwnProperty(key)) {
-          this.length++;
+      else{
+        this.hash[array[i].id] = 1
+        this.currentDraftedCardsBasedHash.push(array[i])
       }
-      this.values[hash][key] = value;
     }
-
-
+    this.exportCardsToText()
   }
+}

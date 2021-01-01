@@ -1,4 +1,5 @@
-<span *ngIf="cardArray.length != 0">
+<span *ngIf="currentDraftedCardsBasedHash.length != 0">
+<span>
     <button mat-raised-button color="primary" (click)="exportCardsToText()">Export Card List</button>
 </span>
 <span [innerText]="content">{{content}}</span>

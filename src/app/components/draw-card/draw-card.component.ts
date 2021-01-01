@@ -11,10 +11,10 @@ export class DrawCardComponent implements OnInit {
   constructor(public _interactionService: InteractionService) { }
 
   public drawnCards = []
-  public draftedCards = []
+  public currentDraftedCards = []
  
 
-  getColor(will) { 
+  getColor(will) {
     switch (will) {
       case 'Fire':
         return '#d0050c';
@@ -26,6 +26,10 @@ export class DrawCardComponent implements OnInit {
         return '#fbdd01';
       case 'Darkness':
         return '#9524b3';
+      case 'Multi':
+        return 'White';
+      case 'Void':
+        return 'Gray';
       default:
         return 'White';
     }
@@ -37,7 +41,7 @@ export class DrawCardComponent implements OnInit {
       message => {
         if (this.drawnCards.length < 8)
           this.drawnCards.push(message)
-          this.draftedCards.push(message)
+          this.currentDraftedCards.push(message)
       })
 
       this._interactionService.clearCards$
@@ -49,7 +53,8 @@ export class DrawCardComponent implements OnInit {
       this._interactionService.setCardList$
       .subscribe(
         message =>{
-          this.sendDrawnCards(this.draftedCards)
+          // this.sendCurrentDraftedCards()
+          this.sendDrawnCards(this.drawnCards)
         }
       )
   }
@@ -61,4 +66,8 @@ export class DrawCardComponent implements OnInit {
   sendDrawnCards(array){
     this._interactionService.sendDrawnCards(array)
   }
+
+  // sendCurrentDraftedCards(){
+  //   this._interactionService.sendCurrentDraftedCards(this.currentDraftedCards)
+  // }
 }

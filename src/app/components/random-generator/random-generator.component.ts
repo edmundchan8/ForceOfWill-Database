@@ -21,7 +21,10 @@ export class RandomGeneratorComponent implements OnInit {
         this.arraySize = 55
         break;
       case 'Rare':
-        this.arraySize = 26
+        this.arraySize = 20
+        break;
+      case 'Ruler':
+        this.arraySize = 6
         break;
       case 'Super Rare':
         this.arraySize = 15
@@ -70,6 +73,9 @@ export class RandomGeneratorComponent implements OnInit {
         }
         else if (message === 'Marvel Rare') {
           this._interactionService.getMRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Ruler') {
+          this._interactionService.getRulerCardFromID(this.randomNumber)
         }
         else
         this._interactionService.getCardFromID(message)
