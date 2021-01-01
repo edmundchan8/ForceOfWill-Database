@@ -7,7 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BoosterCardsService {
-  private _url: string = "/assets/data/draftCards.json";
+
+  //FOR DEVELOPEMENT PURPOSES
+  // private _url: string = "/assets/data/draftCards.json";
+
+  //FOR PRODUCTION PURPOSES
+  private _url: string = "https://github.com/edmundchan8/ForceOfWill-Database/blob/master/src/assets/data/draftCards.json";
 
   constructor(private http: HttpClient) { }
 
