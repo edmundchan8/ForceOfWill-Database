@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DraftViewComponent } from './draft-view.component';
+import { CardApiComponent } from './card-api.component';
 
-describe('DraftViewComponent', () => {
-  let component: DraftViewComponent;
-  let fixture: ComponentFixture<DraftViewComponent>;
+describe('CardApiComponent', () => {
+  let component: CardApiComponent;
+  let fixture: ComponentFixture<CardApiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DraftViewComponent ]
+      declarations: [ CardApiComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DraftViewComponent);
+    fixture = TestBed.createComponent(CardApiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

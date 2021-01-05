@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { BoosterCardsService } from '../../booster-cards.service'
-import { InteractionService } from '../../interaction.service'
+import { BoosterCardsService } from '../../../booster-cards.service'
+import { InteractionService } from '../../../interaction.service'
 
 @Component({
   selector: 'app-draft',
@@ -103,7 +103,7 @@ export class DraftComponent implements OnInit {
      action,
      {duration: 3000})
   }
-
+s
   onMaxBoostersDraftedSnackBar(){
     this._snackBar.open("You cannot open anymore boosters", "dismiss", {duration: 3000})
   }

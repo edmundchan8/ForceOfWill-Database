@@ -1,6 +1,6 @@
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { Component, OnInit } from '@angular/core';
-import { InteractionService } from '../interaction.service'
+import { InteractionService } from '../../../interaction.service'
 
 @Component({
   selector: 'app-card-list',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoosterCardsService } from 'src/app/booster-cards.service';
-import { InteractionService } from '../../interaction.service'
+import { InteractionService } from '../../../interaction.service'
 
 @Component({
   selector: 'app-draw-card',

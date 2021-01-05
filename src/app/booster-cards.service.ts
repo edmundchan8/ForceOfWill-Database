@@ -17,6 +17,6 @@ export class BoosterCardsService {
   constructor(private http: HttpClient) { }
 
   getCards(): Observable<IBoosterCards[]>{
-    return this.http.get<IBoosterCards[]>(this._url);
+    return this.http.get<IBoosterCards[]>(this._url)
   }
 }
