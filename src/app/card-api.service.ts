@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { IAgeFromName } from './age-from-name'
-import { Observable } from 'rxjs'
+import { throwError as observableThrowError, Observable } from 'rxjs'
 import { catchError } from 'rxjs/operators';
-import 'rxjs/add/observable/throw'
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +15,10 @@ export class CardApiService {
 
   getData(): Observable<IAgeFromName[]>{
     return this.http.get<IAgeFromName[]>(this._url).pipe(
-      catchError((err: HttpErrorResponse) => {
-        return Observable.throw
-        
-      })
-    )
-    
+      catchError(this.errorHandler));
+  }
+
+  errorHandler(error: HttpErrorResponse){
+    return observableThrowError(error.message || "Server Error")
   }
 }
