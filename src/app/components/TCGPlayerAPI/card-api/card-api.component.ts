@@ -10,12 +10,32 @@ export class CardApiComponent implements OnInit {
 
   constructor(private cardApiService: CardApiService) { }
 
-  public dataArray
+  public age
+  public count
+  public name
+  public country
 
   ngOnInit(): void {
-    this.cardApiService.getData()
-    .subscribe(data => this.dataArray = data)
-    console.log(this.dataArray)
+    
   }
 
+  getAge(name: string){
+    this.cardApiService.getAgeFromName(name)
+    .subscribe(message => {
+      this.name = name,
+      this.age = message.age,
+      this.count = message.count
+      this.country = ""
+    })
+  }
+
+  getCountry(name: string, country: string){
+    this.cardApiService.getCountryAndName(name, country)
+    .subscribe(message => {
+      this.name = name,
+      this.age = message.age,
+      this.count = message.count
+      this.country = country
+    })
+  }
 }

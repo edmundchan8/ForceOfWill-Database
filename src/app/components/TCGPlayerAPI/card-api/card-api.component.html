@@ -1,2 +1,15 @@
 <h2>Card-Api Works!</h2>
-{{ dataArray }}
+
+<button (click)="getAge(nameInput.value)">Enter a name and click me</button>
+
+<input #nameInput type="text" value="" />
+<h1 *ngIf="name != null">You entered {{ name }}</h1>
+<h2 *ngIf="age != null">Age: {{ age }}</h2>
+<h2 *ngIf="count != null">Count: {{ count }}</h2>
+<h2 *ngIf="country != null">Country: {{ country }}</h2>
+
+<div *ngIf="name != null">
+    <input #countryInput type="text" value="" />
+    <h1>Filter further by country?</h1>
+    <button (click)="getCountry(name, countryInput.value)">Optional, enter a country</button>
+</div>
