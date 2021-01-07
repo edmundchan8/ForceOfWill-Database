@@ -1,5 +1,14 @@
 # ForceOfWillDatabase
 
+## Description
+This is a fan project for the Trading Card Game, Force of Will.  Some of the ambitious goals of this one man project is to create an uptodate card database of all the trading cards from Force of Will.  
+
+At the moment, there is only a Prerelease Draft Simulator for the Set: The Epic of the Dragon Lord, which you can access and use to create randomised prerelease booster drafts and play with one another on a platform such as Untap.io.
+
+## Programming
+
+This application was designed and built using the Angular framework.  It mostly involves Javascript and Typescript as well as HTML. CSS and Angular Materials to build the views
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Development server
