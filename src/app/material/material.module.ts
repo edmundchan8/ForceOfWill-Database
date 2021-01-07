@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
 import {ClipboardModule} from '@angular/cdk/clipboard'
+import { MatSelectModule } from '@angular/material/select'
 
 const material = [
   MatButtonModule, 
@@ -32,7 +33,8 @@ const material = [
   MatFormFieldModule,
   MatInputModule,
   MatTableModule,
-  ClipboardModule
+  ClipboardModule,
+  MatSelectModule
 ]
 
 @NgModule({

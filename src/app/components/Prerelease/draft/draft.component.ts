@@ -10,9 +10,10 @@ import { InteractionService } from '../../../interaction.service'
 })
 export class DraftComponent implements OnInit {
 
-  public boosterSet = "The Epic of the Dragon Lord"
+  public chosenBoosterSet = "The Epic of the Dragon Lord"
   public cardsArray = []
   public boostersDrafted = 0
+  public selected
 
   //random variable holder just for draftcomponent
   public draftRandom
