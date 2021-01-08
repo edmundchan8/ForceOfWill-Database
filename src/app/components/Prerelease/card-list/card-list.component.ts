@@ -25,12 +25,6 @@ export class CardListComponent implements OnInit {
       message => {
         this.AddCardsToHashTable(message)
     })
-
-    // this._interactionService.sendCurrentDraftedCards$
-    // .subscribe(
-    //   message => {
-    //     this.currentDraftedCards = message
-    // })
   }
 
   exportCardsToText() {

@@ -1,21 +1,24 @@
-<h1>Prerelease Draft!</h1>
-
-<mat-form-field appearance="fill" style="display: flex;">
-    <mat-label>Select a Set</mat-label>
-    <mat-select [(value)]="chosenBoosterSet">
-        <mat-option>None</mat-option>
-        <mat-option value="The Epic of the Dragon Lord">The Epic of the Dragon Lord</mat-option>
-        <mat-option value="Alice Origin IV: Prologue of Attoractia">Alice Origin IV: Prologue of Attoractia</mat-option>
-        <mat-option value="Alice Origin III">Alice Origin III</mat-option>
-        <mat-option value="Alice Origin II">Alice Origin II</mat-option>
-        <mat-option value="Alice Origin I">Alice Origin I</mat-option>
-    </mat-select>
-</mat-form-field>
-<p>Draft the set: {{ chosenBoosterSet }} </p>
-<p>You'll be drafting 6 booster packs.  Click below to get a list of cards that you will draft with!</p>
-<button color="primary" mat-raised-button (click)="draftBooster()">DRAFT!</button>
-<app-random-generator></app-random-generator>
-<div class="columnn">
-    <app-draw-card></app-draw-card>
+<div class="row">
+    <div class="column">
+        <h1>Prerelease Draft!</h1>
+        <mat-form-field appearance="fill" style="display: flex;">
+            <mat-label>Select a Set</mat-label>
+            <mat-select [(value)]="chosenBoosterSet">
+                <mat-option>None</mat-option>
+                <mat-option value="The Epic of the Dragon Lord">The Epic of the Dragon Lord</mat-option>
+                <mat-option value="Alice Origin IV: Prologue of Attoractia">Alice Origin IV: Prologue of Attoractia</mat-option>
+                <mat-option value="Alice Origin III">Alice Origin III</mat-option>
+                <mat-option value="Alice Origin II">Alice Origin II</mat-option>
+                <mat-option value="Alice Origin I">Alice Origin I</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Draft the set: {{ chosenBoosterSet }} </p>
+        <p>You'll be drafting 6 booster packs.  Click below to get a list of cards that you will draft with!</p>
+        <button color="primary" mat-raised-button (click)="draftBooster()">DRAFT!</button>
+        <app-draw-card></app-draw-card>
+    </div>
+    <div class="column">
+        <app-card-list></app-card-list>
+    </div>
 </div>
-<app-card-list></app-card-list>
+<app-random-generator></app-random-generator>

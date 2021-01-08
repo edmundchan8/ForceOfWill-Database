@@ -10,7 +10,18 @@ import { InteractionService } from '../../../interaction.service'
 export class RandomGeneratorComponent implements OnInit {
 
   public arraySize
-  public randomNumber
+  public randomNumber  
+
+  public numberNormal = 55
+  public numberRare = 20
+  public numberSuperRare = 15
+  public numberMarvel = 5
+  public numberRuler = 6
+  public numberUncommon // Before Alice Origin I
+  public numberSecret // Before Alice Origin I
+  public boosterCardSize = 100
+
+
   constructor(public _boosterCardsSerivce: BoosterCardsService, 
     public _interactionService: InteractionService) {}
 
@@ -18,22 +29,22 @@ export class RandomGeneratorComponent implements OnInit {
     switch(rarity)
     {
       case 'Normal':
-        this.arraySize = 55
+        this.arraySize = this.numberNormal
         break;
       case 'Rare':
-        this.arraySize = 20
+        this.arraySize = this.numberRare
         break;
       case 'Ruler':
-        this.arraySize = 6
+        this.arraySize = this.numberRuler
         break;
       case 'Super Rare':
-        this.arraySize = 15
+        this.arraySize = this.numberSuperRare
         break;
       case 'Marvel Rare':
-        this.arraySize = 5
+        this.arraySize = this.numberMarvel
         break;
       default:
-        this.arraySize = 100
+        this.arraySize = this.boosterCardSize
         break;
     }
      return this.randomNumber = Math.floor(( Math.random() * this.arraySize))

@@ -17,6 +17,8 @@ export class DraftComponent implements OnInit {
   public boostersDrafted = 0
   public selected
 
+  public boosterDraftSize = 6
+
   //random variable holder just for draftcomponent
   public draftRandom
   
@@ -74,7 +76,7 @@ export class DraftComponent implements OnInit {
   }
 
   draftBooster(){
-    if(this.boostersDrafted != 6)
+    if(this.boostersDrafted != this.boosterDraftSize)
     {
       this.boostersDrafted++
       this._interactionService.clearDrawnCards()

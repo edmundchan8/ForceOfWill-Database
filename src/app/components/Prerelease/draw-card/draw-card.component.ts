@@ -53,7 +53,6 @@ export class DrawCardComponent implements OnInit {
       this._interactionService.setCardList$
       .subscribe(
         message =>{
-          // this.sendCurrentDraftedCards()
           this.sendDrawnCards(this.drawnCards)
         }
       )
@@ -66,8 +65,4 @@ export class DrawCardComponent implements OnInit {
   sendDrawnCards(array){
     this._interactionService.sendDrawnCards(array)
   }
-
-  // sendCurrentDraftedCards(){
-  //   this._interactionService.sendCurrentDraftedCards(this.currentDraftedCards)
-  // }
 }
