@@ -1,0 +1,174 @@
+[33mcommit 8f0974accea2dfb35b90f30fa2c63522e3916c06[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Jan 7 17:54:26 2021 -0800
+
+    added basic routing to code
+
+[33mcommit e92804ff20a513999b67bb76be391e043586269e[m
+Merge: 1a912eb 7ef8a7f
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Jan 7 13:54:39 2021 -0800
+
+    Merge branch 'master' of https://github.com/edmundchan8/ForceOfWill-Database
+
+[33mcommit 1a912eb216b73ccea5c6fa566cf203c25cc55a2e[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Jan 7 13:52:45 2021 -0800
+
+    added select bar for choosing sets
+
+[33mcommit 7ef8a7fac533a03348b94fb0fecd5dcce45d129f[m
+Author: edmundchan8 <pokedev8@gmail.com>
+Date:   Wed Jan 6 22:08:28 2021 -0800
+
+    Update README.md
+
+[33mcommit 716a5cca6d7b0ad8ebb1bc900392de880b2ea0e4[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Wed Jan 6 21:18:14 2021 -0800
+
+    code done for testing api
+
+[33mcommit 35a455e37843bca4906872cc8e0893fda4df914d[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Jan 5 12:47:05 2021 -0800
+
+    updated rxjs
+
+[33mcommit 82e2fc512527ee9be0b396972d981a0c9451ea01[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Jan 5 12:37:23 2021 -0800
+
+    testing api code
+
+[33mcommit faaad6d297668a6f8a9dfee0ae33b39c608e6478[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 31 22:22:15 2020 -0800
+
+    raw version of json data
+
+[33mcommit 002f8f593df7d216f158aee5913326c53eed3ef9[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 31 22:19:29 2020 -0800
+
+    2nd _url for accessing card database straight from github
+
+[33mcommit 315355c437f5e6c1b5047f470237e7d31d27841a[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 31 22:04:32 2020 -0800
+
+    making git pages work
+
+[33mcommit 5dc200cd2cf9820fef5d48257d1234558b23cdc6[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 31 19:31:32 2020 -0800
+
+    added copy to text feature
+
+[33mcommit c5188e25efa8986d7e864616bb4f63aeba1a813d[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 31 18:57:14 2020 -0800
+
+    hashmap added, card list display number of cards drawn as well
+
+[33mcommit 622e7a9817d67cef89f98a4ae50e4be88605e9b5[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 29 17:03:22 2020 -0800
+
+    export card list only appears after draft
+
+[33mcommit ff2bcaebbd33386d0a8001da92e7f8a330f492ed[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Sun Dec 27 17:23:34 2020 -0800
+
+    Two column layout, split components to either side
+
+[33mcommit a8bc8a1c19b8909cab29a406aed17f256a58c889[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Sat Dec 26 21:37:04 2020 -0800
+
+    added snack bar
+
+[33mcommit 6665d81c87c1a00d965e15527723a44ef7c46c16[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 24 12:14:11 2020 -0800
+
+    limited table length to 8 cards
+
+[33mcommit c3460fc09fa95a7a16c5e876daaec1b6ad960823[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Thu Dec 24 11:15:16 2020 -0800
+
+    table now add each card created to it
+
+[33mcommit e5056ff89a6e8fc8f287ce4e30653abfdd262d0b[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 22 21:17:37 2020 -0800
+
+    Added finding other rarities
+
+[33mcommit 433d6ac8261da6dd0d519d3c51637d27583b1faa[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 22 19:08:33 2020 -0800
+
+    added button to print on Normal rarity cards
+
+[33mcommit 2a8af279797a59b52bdddb846a96130137c96e58[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 22 17:06:13 2020 -0800
+
+    Added button that generates random card
+
+[33mcommit 2e83f3bf372e8355afd6651078e52feae751b4e2[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 22 11:42:36 2020 -0800
+
+    tidying up code further
+
+[33mcommit 7cf4a0c198bf6183c2a9592de13c35d5a78b44c0[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Sun Dec 20 21:48:34 2020 -0800
+
+    Added random calling of card
+
+[33mcommit 26853b759fb661b1a3a740d4bd289a2c704bf1d1[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 15 14:11:37 2020 -0800
+
+    get random number from sibling component
+
+[33mcommit cf6d286b9d28e3a55dc1df398ee8fefb2470e6b2[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Tue Dec 15 12:09:56 2020 -0800
+
+    fixed service and di
+
+[33mcommit 262b243b64bf42b83bbc67869bfdd48272bb6d68[m
+Author: unknown <pokedev8@gmail.com>
+Date:   Mon Dec 14 21:47:30 2020 -0800
+
+    add code
+
+[33mcommit f2800272bf4274e3c418550180ff936788bd9297[m
+Author: edmundchan8 <pokedev8@gmail.com>
+Date:   Sun Nov 22 18:09:51 2020 -0800
+
+    Working on prerelease draft builder
+
+[33mcommit 4c2e5228c87d4deabcb685731e630f12a4fc9d7d[m
+Author: edmundchan8 <pokedev8@gmail.com>
+Date:   Fri Nov 20 12:43:14 2020 -0800
+
+    added dependcy injection to separate card database data from code, created advanced search component
+
+[33mcommit eea450a80e8aef1280be236c4e6a5376bf644024[m
+Author: edmundchan8 <pokedev8@gmail.com>
+Date:   Thu Nov 19 15:13:11 2020 -0800
+
+    Start of project, added title, search bar and basic data for testing
+
+[33mcommit 0fafd152adc5d6dc308730d71a07874b22446892[m
+Author: edmundchan8 <pokedev8@gmail.com>
+Date:   Thu Nov 19 14:39:48 2020 -0800
+
+    initial commit

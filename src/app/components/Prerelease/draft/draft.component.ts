@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+// import {MatSnackBar} from '@angular/material/snack-bar';
+import { MaterialModule } from '../../../material/material.module'
 import { BoosterCardsService } from '../../../booster-cards.service'
 import { InteractionService } from '../../../interaction.service'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-draft',
@@ -20,7 +22,7 @@ export class DraftComponent implements OnInit {
   
   constructor(public _boosterCardsService: BoosterCardsService, 
     public _interactionService: InteractionService,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
     this._boosterCardsService.getCards()

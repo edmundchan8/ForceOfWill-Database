@@ -1,18 +1,27 @@
 <mat-toolbar color="primary">
     <h1>{{ title }}</h1>
 </mat-toolbar>
+
+<nav>
+    <a mat-raised-button routerLink="prerelease" routerLinkActive="active">Prerelease Drafting</a>
+    <a mat-raised-button routerLink="card" routerLinkActive="active">Card</a>
+    <a mat-raised-button routerLink="advanced_search" routerLinkActive="active">Advanced Search</a>
+</nav>
+
+<router-outlet></router-outlet>
+
 <!-- <a href="" (click)="clickNavPrerelease()">Prerelease Maker</a> -->
 <!-- <app-advanced-search></app-advanced-search> -->
 
 <!-- PRERELEASE COMPONENT -->
-<div class="row">
+<!-- <div class="row">
     <div class="column app-border">
         <app-draft></app-draft>
     </div>
     <div class="column">
         <app-card-list></app-card-list>
     </div>
-</div>
+</div> -->
 
 <!-- API TESTING -->
 <!-- <app-card-api></app-card-api> -->
