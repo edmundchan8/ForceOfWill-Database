@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TradingcardsService } from './tradingcards.service';
 import { BoosterCardsService } from './booster-cards.service'
-import { AdvancedSearchComponent } from './components/Prerelease/advanced-search/advanced-search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DraftComponent } from './components/Prerelease/draft/draft.component';
 import { RandomGeneratorComponent} from './components/Prerelease/random-generator/random-generator.component'
@@ -17,12 +16,12 @@ import { CardApiComponent } from './components/TCGPlayerAPI/card-api/card-api.co
 @NgModule({
   declarations: [
     AppComponent,
-    AdvancedSearchComponent,
     DraftComponent,
     RandomGeneratorComponent,
     DrawCardComponent,
     CardListComponent,
-    CardApiComponent
+    CardApiComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
