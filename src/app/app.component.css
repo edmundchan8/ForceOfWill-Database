@@ -9,3 +9,7 @@ h1, p {
 flex: 50%;
 margin: 5px;
 }
+
+nav a.active{
+    background-color: lightblue;
+}
