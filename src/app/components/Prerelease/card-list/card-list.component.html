@@ -1,6 +1,5 @@
 <span *ngIf="currentDraftedCardsBasedHash.length != 0">
 <span>
-    <!-- <button [cdkCopyToClipboard]="This goes to Clipboard">Copy this</button> -->
     <button [cdkCopyToClipboard]="content">Copy to clipboard</button>
 </span>
 <span [innerText]="content">{{content}}</span>

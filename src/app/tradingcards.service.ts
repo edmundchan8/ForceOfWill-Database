@@ -15,4 +15,5 @@ export class TradingcardsService {
   getTradingCards(): Observable<ICards[]>{
     return this.http.get<ICards[]>(this._url);
   }
+
 }

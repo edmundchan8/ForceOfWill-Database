@@ -1,5 +1,5 @@
 import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
-import { Injectable } from '@angular/core';
+import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IBoosterCards } from './booster-cards'
 
@@ -41,7 +41,16 @@ export class InteractionService {
   sendCurrentDraftedCards$ = this._sendCurrentDraftedCardsSource.asObservable()
   setCardList$ = this._setCardListSource.asObservable()
 
-  constructor() { }
+  constructor(@Optional() @SkipSelf() parent?: InteractionService) {
+    if (parent) {
+      throw Error(
+        `[Interaction]: trying to create multiple instances,
+        but this service should be a singleton.`
+      );
+    }
+  }
+
+
   // create a method that accepts a value from random component and pushed it via an observable
   createRandomNumber(){
     this._createRanNumSource.next()
@@ -52,6 +61,7 @@ export class InteractionService {
   }
 
   confirmID(value){
+    console.log("6 interact confirmID")
     this._confirmIDSource.next(value)
   }
 
@@ -77,10 +87,12 @@ export class InteractionService {
   }
 
   drawCard(card){
+    console.log("10 interact drawCard")
     this._drawCardSource.next(card)
   }
 
   clearDrawnCards(){
+    console.log("2 interact clearDrawnCards")
     this._clearDrawnCardsSource.next()
   }
 

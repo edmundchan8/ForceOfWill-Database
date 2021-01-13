@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BoosterCardsService } from 'src/app/booster-cards.service';
 import { InteractionService } from '../../../interaction.service'
 
 @Component({
@@ -7,12 +6,13 @@ import { InteractionService } from '../../../interaction.service'
   templateUrl: './draw-card.component.html',
   styleUrls: ['./draw-card.component.css']
 })
+
 export class DrawCardComponent implements OnInit {
-  constructor(public _interactionService: InteractionService) { }
+  constructor(private _interactionService: InteractionService) { }
 
   public drawnCards = []
   public currentDraftedCards = []
- 
+  public maxDrawLimit = 8
 
   getColor(will) {
     switch (will) {
@@ -39,17 +39,20 @@ export class DrawCardComponent implements OnInit {
     this._interactionService.drawCard$
     .subscribe(
       message => {
-        if (this.drawnCards.length < 8)
+          console.log("11 draw-card drawing card")
           this.drawnCards.push(message)
+          console.log("12 draw-card push card draft")
           this.currentDraftedCards.push(message)
       })
 
       this._interactionService.clearCards$
       .subscribe(
         message => {
+          console.log("3 interact clearcards")
           this.clearCards()
-        }
-      )
+        })
+
+
       this._interactionService.setCardList$
       .subscribe(
         message =>{
@@ -59,6 +62,7 @@ export class DrawCardComponent implements OnInit {
   }
 
   clearCards(){
+    console.log("4 set Drawncards to => " + this.drawnCards)
     this.drawnCards = []
   }
 

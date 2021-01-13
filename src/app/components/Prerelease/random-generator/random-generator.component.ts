@@ -69,6 +69,7 @@ export class RandomGeneratorComponent implements OnInit {
     this._interactionService.confirmID$
     .subscribe(
       message => {
+        console.log("8 finding random card")
         this.generateRandomNumber(message)
         if (message === 'random') {
           this._interactionService.getCardFromID(this.randomNumber)
@@ -93,6 +94,7 @@ export class RandomGeneratorComponent implements OnInit {
       }
     )
     
+    //is this being used?
     this._interactionService.sendRandom$
     .subscribe(
       message => {
