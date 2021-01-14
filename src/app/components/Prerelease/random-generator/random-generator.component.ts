@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { BoosterCardsService } from 'src/app/booster-cards.service';
 import { InteractionService } from '../../../interaction.service'
 
@@ -7,7 +8,7 @@ import { InteractionService } from '../../../interaction.service'
   templateUrl: './random-generator.component.html',
   styleUrls: ['./random-generator.component.css']
 })
-export class RandomGeneratorComponent implements OnInit {
+export class RandomGeneratorComponent implements OnDestroy {
 
   public arraySize
   public randomNumber  
@@ -20,10 +21,48 @@ export class RandomGeneratorComponent implements OnInit {
   public numberUncommon // Before Alice Origin I
   public numberSecret // Before Alice Origin I
   public boosterCardSize = 100
-
+  subscription = new Subscription()
 
   constructor(public _boosterCardsSerivce: BoosterCardsService, 
-    public _interactionService: InteractionService) {}
+    public _interactionService: InteractionService) {
+
+      this.subscription.add(this._interactionService.createRandom$
+        .subscribe(message => {
+        this.randomNumber = this.generateRandomNumber(message)
+        })
+      )
+
+      this.subscription.add(this._interactionService.confirmID$
+        .subscribe(message => {
+        console.log("6 random-generator - finding random card")
+        this.generateRandomNumber(message)
+        if (message === 'random') {
+          this._interactionService.getCardFromID(this.randomNumber)
+        }
+        else if (message === 'Normal') {
+          this._interactionService.getNCardFromID(this.randomNumber)
+        }
+        else if (message === 'Rare') {
+          this._interactionService.getRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Super Rare') {
+          this._interactionService.getSRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Marvel Rare') {
+          this._interactionService.getMRCardFromID(this.randomNumber)
+        }
+        else if (message === 'Ruler') {
+          this._interactionService.getRulerCardFromID(this.randomNumber)
+        }
+        else
+        this._interactionService.getCardFromID(message)
+        })
+      )
+    }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 
    generateRandomNumber(rarity){
     switch(rarity)
@@ -57,48 +96,4 @@ export class RandomGeneratorComponent implements OnInit {
    getRandomNumber(){
      return this.randomNumber
    }
-
-  ngOnInit(): void {
-    this._interactionService.createRandom$
-    .subscribe(
-      message => {
-        this.randomNumber = this.generateRandomNumber(message)
-      }
-    )
-
-    this._interactionService.confirmID$
-    .subscribe(
-      message => {
-        console.log("8 finding random card")
-        this.generateRandomNumber(message)
-        if (message === 'random') {
-          this._interactionService.getCardFromID(this.randomNumber)
-        }
-        else if (message === 'Normal') {
-          this._interactionService.getNCardFromID(this.randomNumber)
-        }
-        else if (message === 'Rare') {
-          this._interactionService.getRCardFromID(this.randomNumber)
-        }
-        else if (message === 'Super Rare') {
-          this._interactionService.getSRCardFromID(this.randomNumber)
-        }
-        else if (message === 'Marvel Rare') {
-          this._interactionService.getMRCardFromID(this.randomNumber)
-        }
-        else if (message === 'Ruler') {
-          this._interactionService.getRulerCardFromID(this.randomNumber)
-        }
-        else
-        this._interactionService.getCardFromID(message)
-      }
-    )
-    
-    //is this being used?
-    this._interactionService.sendRandom$
-    .subscribe(
-      message => {
-        return this.randomNumber
-      })
-  }
 }

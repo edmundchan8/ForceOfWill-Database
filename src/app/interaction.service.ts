@@ -50,7 +50,6 @@ export class InteractionService {
     }
   }
 
-
   // create a method that accepts a value from random component and pushed it via an observable
   createRandomNumber(){
     this._createRanNumSource.next()
@@ -61,7 +60,6 @@ export class InteractionService {
   }
 
   confirmID(value){
-    console.log("6 interact confirmID")
     this._confirmIDSource.next(value)
   }
 
@@ -87,12 +85,10 @@ export class InteractionService {
   }
 
   drawCard(card){
-    console.log("10 interact drawCard")
     this._drawCardSource.next(card)
   }
 
   clearDrawnCards(){
-    console.log("2 interact clearDrawnCards")
     this._clearDrawnCardsSource.next()
   }
 
@@ -103,8 +99,4 @@ export class InteractionService {
   setCardListArray(){
     this._setCardListSource.next()
   }
-
-  // sendCurrentDraftedCards(array){
-  //   this._sendCurrentDraftedCardsSource.next(array)
-  // }
 }

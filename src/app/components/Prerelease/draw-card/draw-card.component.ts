@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscriber, Subscription } from 'rxjs';
 import { InteractionService } from '../../../interaction.service'
 
 @Component({
@@ -7,8 +8,36 @@ import { InteractionService } from '../../../interaction.service'
   styleUrls: ['./draw-card.component.css']
 })
 
-export class DrawCardComponent implements OnInit {
-  constructor(private _interactionService: InteractionService) { }
+export class DrawCardComponent implements OnDestroy {
+  subscription = new Subscription()
+
+  constructor(private _interactionService: InteractionService) { 
+    this.subscription.add(this._interactionService.drawCard$
+    .subscribe(
+      message => {
+          this.drawnCards.push(message)
+          this.currentDraftedCards.push(message)
+      })
+    )
+
+    this.subscription.add(this._interactionService.setCardList$
+      .subscribe(
+        message =>{
+          this.sendDrawnCards(this.drawnCards)
+        })
+    )
+
+    this.subscription.add(this._interactionService.clearCards$
+      .subscribe(
+      message => {
+        this.clearCards()
+      })
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 
   public drawnCards = []
   public currentDraftedCards = []
@@ -35,34 +64,7 @@ export class DrawCardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this._interactionService.drawCard$
-    .subscribe(
-      message => {
-          console.log("11 draw-card drawing card")
-          this.drawnCards.push(message)
-          console.log("12 draw-card push card draft")
-          this.currentDraftedCards.push(message)
-      })
-
-      this._interactionService.clearCards$
-      .subscribe(
-        message => {
-          console.log("3 interact clearcards")
-          this.clearCards()
-        })
-
-
-      this._interactionService.setCardList$
-      .subscribe(
-        message =>{
-          this.sendDrawnCards(this.drawnCards)
-        }
-      )
-  }
-
   clearCards(){
-    console.log("4 set Drawncards to => " + this.drawnCards)
     this.drawnCards = []
   }
 

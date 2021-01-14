@@ -12,11 +12,12 @@ const routes: Routes = [
   { path: 'advanced_search', component: AdvancedSearchComponent },
   { path: 'prerelease', component: DraftComponent }
 ];
-
+  
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [ CardComponent, AdvancedSearchComponent, DraftComponent, CardListComponent, DrawCardComponent ]
+export const routingComponents = [ CardComponent, AdvancedSearchComponent, 
+  DraftComponent, CardListComponent, DrawCardComponent ]
