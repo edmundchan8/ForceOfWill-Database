@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardApiService } from '../../../card-api.service'
 
 @Component({
@@ -6,7 +6,7 @@ import { CardApiService } from '../../../card-api.service'
   templateUrl: './card-api.component.html',
   styleUrls: ['./card-api.component.css']
 })
-export class CardApiComponent implements OnInit {
+export class CardApiComponent {
 
   constructor(private cardApiService: CardApiService) { }
 
@@ -14,10 +14,6 @@ export class CardApiComponent implements OnInit {
   public count
   public name
   public country
-
-  ngOnInit(): void {
-    
-  }
 
   getAge(name: string){
     this.cardApiService.getAgeFromName(name)

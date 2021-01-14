@@ -1,5 +1,6 @@
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { InteractionService } from '../../../interaction.service'
 
 @Component({
@@ -7,24 +8,28 @@ import { InteractionService } from '../../../interaction.service'
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css']
 })
-export class CardListComponent implements OnInit {
-
-  constructor(
-    public _interactionService: InteractionService,
-    private _clipboard: ClipboardModule
-    ) { }
+export class CardListComponent implements OnDestroy  {
 
   public currentDraftedCardsBasedHash = []
   //hash instead of 'content'
   public content = ""
   public hash = { }
+  subscription = new Subscription()
 
-  ngOnInit(): void {
-    this._interactionService.sendDrawnCards$
-    .subscribe(
-      message => {
-        this.AddCardsToHashTable(message)
-    })
+  constructor(
+    public _interactionService: InteractionService,
+    private _clipboard: ClipboardModule
+    ) {
+      this.subscription.add(this._interactionService.sendDrawnCards$
+        .subscribe(
+          message => {
+            this.AddCardsToHashTable(message)
+        })
+      )
+     }
+
+  ngOnDestroy (): void {
+    this.subscription.unsubscribe()
   }
 
   exportCardsToText() {

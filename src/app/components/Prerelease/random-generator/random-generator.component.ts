@@ -34,7 +34,6 @@ export class RandomGeneratorComponent implements OnDestroy {
 
       this.subscription.add(this._interactionService.confirmID$
         .subscribe(message => {
-        console.log("6 random-generator - finding random card")
         this.generateRandomNumber(message)
         if (message === 'random') {
           this._interactionService.getCardFromID(this.randomNumber)

@@ -28,7 +28,7 @@ export class CardApiService {
 
   getAgeFromName(name: string): Observable<IAgeFromName>{
     const url = this._url + name
-    // return this.http.get<IAgeFromName>(url)
+    // return this.http.get<IAgeFromName>(url)s
       return this.http.get<IAgeFromName>(url).pipe(
         catchError(this.errorHandler)
       )
